@@ -1,0 +1,56 @@
+body {
+	background-color: blue;
+}
+
+#title {
+    	background-color: white;
+        font-size: 30px;
+    	margin: 10px;
+        padding: 20px;
+    }
+
+#instructions {
+		background-color: white;
+    	margin: 10px;
+        padding: 20px;
+    }
+
+#guess {
+		background-color: white;
+    	margin: 10px;
+    	padding-bottom: 60px;
+    	font-size: 30px;
+    }
+
+#history {
+		background-color: white;
+    	margin: 10px;
+    	padding-bottom: 50px;
+	}
+
+#crystals {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+		background-color: blue;
+    	margin: 10px;
+
+    }
+
+.crystal {
+    border: 1px solid green;
+    height: 100px;
+    width: 100px;
+}
+
+#total {
+		background-color: white;
+    	margin: 10px;
+
+    }
+
+#current-score {
+		background-color: white;
+    	margin: 10px;
+    	padding-bottom: 40px;	
+    }
