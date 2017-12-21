@@ -20,7 +20,7 @@ console.log(randomResult);
       var crystal = $("<div>");
           crystal.attr({
             "class": "crystal",
-            "data-random" : random
+            "data-crystalvalue" : random
           });
           
 
@@ -31,12 +31,13 @@ console.log(randomResult);
 
     $(".crystal").on("click", function () {
         console.log($(this));
-    })
-    var crystalValue = ($(this).attr("data-crystalvalue"));
-    crystalValue = parseInt(crystalValue);
-     //We then add the crystalValue to the user's "counter" which is a global variable.
+
+        var crystalValue = parseInt($(this).attr("data-crystalvalue"));
+//We then add the crystalValue to the user's "counter" which is a global variable.
     // Every click, from every crystal adds to the global counter.
-   counter += crystalValue;
+        counter += crystalValue;
+        
+    })
 
     // All of the same game win-lose logic applies. So the rest remains unchanged.
   //  alert("New score: " + counter);
