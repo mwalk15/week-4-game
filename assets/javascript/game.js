@@ -1,15 +1,20 @@
-console.log("linked!")
 
-var randomResult
-var lose
-var win
 
-var randomResult = Math.floor(Math.random() * 101) + 19;
-console.log(randomResult);
+$(document).ready(function() { 
+
+var randomResult;
+var lose = 0;
+var win = 0;
+var counter = 0;
+
+
+
+var startGame = function() {
+
+  var randomResult = Math.floor(Math.random() * 101) + 19;
+
 
   $("#number-to-guess").text(randomResult);
-
-  var counter = 0;
 
   
     for (var i = 0; i < 4; i++) {
@@ -20,33 +25,44 @@ console.log(randomResult);
       var crystal = $("<div>");
           crystal.attr({
             "class": "crystal",
-            "data-crystalvalue" : random
+            "data-random" : random
           });
           
 
       $("#crystals").append(crystal);
-      console.log("crystal image");
 
     }
 
-    $(".crystal").on("click", function () {
-        console.log($(this));
+}
+startGame();
 
-        var crystalValue = parseInt($(this).attr("data-crystalvalue"));
-//We then add the crystalValue to the user's "counter" which is a global variable.
-    // Every click, from every crystal adds to the global counter.
+//for some reason when i wrapped my code in a startGame function, it no longer logged the win or lose one reaching the random guess. :-( I got stuck here.
+$(".crystal").on("click", function () {
+      
+
+        var crystalValue = parseInt($(this).attr("data-random"));
+
+  
         counter += crystalValue;
+        console.log(counter);
+
+        if (counter > randomResult) {
+          lose++;
+          $("#lose").text("Losses: " + lose);
+          console.log("You Lose!");
+
+          startGame();
+       }
         
-    })
+       else if (counter === randomResult) {
+          win++;
+          $("#win").text("Wins: " + win);
+          console.log("You Win!");
 
-    // All of the same game win-lose logic applies. So the rest remains unchanged.
-  //  alert("New score: " + counter);
+          startGame();
+       }
 
-    //if (counter === randomNumber) {
-      //alert("You win!");
-    //}
+    });
 
-    //else if (counter >= randomNumber) {
-      //alert("You lose!!");
-    //}
 
+});
